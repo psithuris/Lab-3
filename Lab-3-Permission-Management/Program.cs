@@ -28,6 +28,24 @@ namespace Lab_3_Permission_Management
             else
                 Console.WriteLine("Operator does not have read permission");
 
+            managerUser.multiplyPermission(Permissions.Read, Permissions.Write);
+            managerUser.AddPermission(Permissions.Execute);
+
+            SeniorUser.multiplyPermission(Permissions.Read, Permissions.Write);
+
+            adminUser.multiplyPermission(Permissions.Read, Permissions.Write);
+            adminUser.AddPermission(Permissions.Execute);
+
+            SeniorUser.RemovePermission(Permissions.Write);
+
+            SeniorUser.RemovePermission(Permissions.Write);
+
+            Console.WriteLine($"Does Senior have write: {SeniorUser.HasPermission(Permissions.Write)}");
+            Console.WriteLine($"Does Manager have execute: {managerUser.HasPermission(Permissions.Execute)}");
+
+            Permissions full = Permissions.Read | Permissions.Write | Permissions.Execute;
+            Console.WriteLine($"Admin has full permissions: {adminUser.HasPermission(full)}");
+
             /**
              * Look at tasks description in lab3.1 and complete the remaining tasks
              */
